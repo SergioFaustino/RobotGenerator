@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Deck from './Deck';
-import SearchBox from './SearchBox.js'
-import Scroll from './Scroll.js'
+import Deck from '../components/Deck';
+import SearchBox from '../components//SearchBox.js';
+import Scroll from '../components/Scroll.js';
 import './App.css'
 
 class App extends Component {
@@ -24,8 +24,9 @@ class App extends Component {
 	}
 
 	render() {
-		const filteredRobots = this.state.robots.filter(
-				robot => {return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());}
+		const { robots, searchfield } = this.state;
+		const filteredRobots = robots.filter(
+				robot => {return robot.name.toLowerCase().includes(searchfield.toLowerCase());}
 		);
 		return (
 			<div className='tc'>
